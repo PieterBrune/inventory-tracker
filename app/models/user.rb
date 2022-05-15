@@ -3,4 +3,8 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
+
+  # When a 'User' is destroyed, its 'items' and 'warehouses' will also be destroyed
+  has_many :items, dependent: :destroy
+  has_many :warehouses, dependent: :destroy
 end

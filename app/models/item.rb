@@ -1,5 +1,4 @@
 class Item < ApplicationRecord
-  WAREHOUSES = Warehouse.where(user: current_user)
   belongs_to :user
   belongs_to :warehouse
 
@@ -10,4 +9,6 @@ class Item < ApplicationRecord
 
   validates :description, presence: true
 
+  # `description` has to be between 10 and 50 characters
+  validates :description, length: { in: 10..50 }
 end
