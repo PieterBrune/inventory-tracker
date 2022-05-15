@@ -1,0 +1,28 @@
+.sign-up {
+  color: white;
+  padding: 8px 24px;
+  border-radius: 4px;
+  background: #0da81a;
+  transition: background 0.3s ease;
+  text-decoration: none;
+  border: 0px;
+}
+
+.sign-up:hover {
+  background: #25c032;
+  color: white;
+}
+
+.login {
+  color: white;
+  padding: 8px 24px;
+  border-radius: 4px;
+  background: #1e91dd;
+  transition: background 0.3s ease;
+  text-decoration: none;
+}
+
+.login:hover {
+  background: #2f98df;
+  color: white;
+}
