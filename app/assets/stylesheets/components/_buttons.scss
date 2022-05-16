@@ -31,3 +31,23 @@
   font-size: 36px;
   color: #1e91dd;
 }
+
+.edit {
+  text-align: left;
+  margin: 30px auto;
+  font-size: 20px;
+
+  a {
+    text-decoration: none;
+  }
+
+  .fa-edit {
+    margin-right: 2vw;
+    color: green;
+  }
+
+  .fa-trash {
+    margin-right: 1vw;
+    color: red;
+  }
+}

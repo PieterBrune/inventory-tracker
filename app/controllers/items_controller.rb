@@ -13,7 +13,7 @@ class ItemsController < ApplicationController
     @item.user = current_user
 
     if @item.save
-      redirect_to warehouse_path(@item.warehouse), notice: "Item added."
+      redirect_to warehouse_path(@item.warehouse), notice: "#{@item.name} added."
     else
       render :new
     end
@@ -31,10 +31,17 @@ class ItemsController < ApplicationController
     @item = Item.find(params[:id])
     @item.warehouse = Warehouse.find(params[:item][:warehouse].to_i)
     if @item.update(item_params)
-      redirect_to item_path(@item), notice: "Item updated."
+      redirect_to item_path(@item), notice: "#{@item.name} updated."
     else
       render :edit
     end
+  end
+
+  def destroy
+    @item = Item.find(params[:id])
+    @item.destroy
+
+    redirect_to warehouse_path(@item.warehouse), notice: "#{@item.name} destroyed."
   end
 
   private

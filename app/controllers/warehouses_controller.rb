@@ -11,7 +11,7 @@ class WarehousesController < ApplicationController
     @warehouse.user = current_user
 
     if @warehouse.save
-      redirect_to :dashboard, notice: "Warehouse added."
+      redirect_to :dashboard, notice: "#{@warehouse.name} added."
     else
       render :new
     end
@@ -29,7 +29,7 @@ class WarehousesController < ApplicationController
   def update
     @warehouse = Warehouse.find(params[:id])
     if @warehouse.update(warehouse_params)
-      redirect_to warehouse_path(@warehouse), notice: "Warehouse updated."
+      redirect_to warehouse_path(@warehouse), notice: "#{@warehouse.name} updated."
     else
       render :edit
     end
@@ -39,7 +39,7 @@ class WarehousesController < ApplicationController
     @warehouse = Warehouse.find(params[:id])
     @warehouse.destroy
 
-    redirect_to :dashboard, notice: "Warehouse destroyed."
+    redirect_to :dashboard, notice: "#{@warehouse.name} destroyed."
   end
 
   private
