@@ -23,6 +23,20 @@ class ItemsController < ApplicationController
     @item = Item.find(params[:id])
   end
 
+  def edit
+    @item = Item.find(params[:id])
+  end
+
+  def update
+    @item = Item.find(params[:id])
+    @item.warehouse = Warehouse.find(params[:item][:warehouse].to_i)
+    if @item.update(item_params)
+      redirect_to item_path(@item), notice: "Item updated."
+    else
+      render :edit
+    end
+  end
+
   private
 
   def item_params
