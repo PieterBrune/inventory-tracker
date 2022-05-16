@@ -1,5 +1,11 @@
-<div class="container">
+<div class="container mt-3">
   <h2><%= @warehouse.name %></h2>
+
+  <div class="edit">
+    <%= link_to edit_warehouse_path(@warehouse) do %>
+      <i class="far fa-edit"></i>
+    <% end %>
+  </div>
 
   <h3>Address</h3>
   <p><%= @warehouse.street_address%></p>

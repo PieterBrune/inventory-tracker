@@ -22,6 +22,19 @@ class WarehousesController < ApplicationController
     @items = @warehouse.items
   end
 
+  def edit
+    @warehouse = Warehouse.find(params[:id])
+  end
+
+  def update
+    @warehouse = Warehouse.find(params[:id])
+    if @warehouse.update(warehouse_params)
+      redirect_to warehouse_path(@warehouse), notice: "Warehouse updated."
+    else
+      render :edit
+    end
+  end
+
   private
 
   def warehouse_params
