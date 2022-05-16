@@ -5,5 +5,6 @@ class PagesController < ApplicationController
   end
 
   def dashboard
+    @user_warehouses = current_user.warehouses
   end
 end
