@@ -1,0 +1,14 @@
+<div class="container mt-3">
+  <h2>Edit <%= @warehouse.name %></h2>
+
+  <%= simple_form_for(@warehouse) do |f| %>
+    <%= f.input :name, required: true %>
+    <%= f.input :street_address, required: true %>
+    <%= f.input :city, required: true %>
+    <%= f.input :postal_code, required: true %>
+    <%= f.input :country, required: true %>
+    <div class="form-actions">
+      <%= f.button :submit, "Update", class: "login" %>
+    </div>
+  <% end %>
+</div>
