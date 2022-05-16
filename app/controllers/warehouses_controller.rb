@@ -17,6 +17,11 @@ class WarehousesController < ApplicationController
     end
   end
 
+  def show
+    @warehouse = Warehouse.find(params[:id])
+    @items = @warehouse.items
+  end
+
   private
 
   def warehouse_params

@@ -1,15 +1,18 @@
 <div class="container mt-3">
   <h2>Hi, <%= current_user.username %></h2>
 
-  <div class="text-right">
-    <%= link_to "Add Warehouse", new_warehouse_path, class: "login" %>
-  </div>
+  <br>
 
   <% if current_user.warehouses.empty? %>
     <p>Please add a warehouse</p>
+    <br>
+    <%= link_to "Add Warehouse", new_warehouse_path, class: "login" %>
   <% else %>
+    <h3>Your Warehouses</h3>
     <% @user_warehouses.each do |warehouse| %>
-      <p><%= warehouse.name %></p>
+      <%= link_to warehouse_path(warehouse) do %>
+        <p><%= warehouse.name %></p>
+      <% end %>
     <% end %>
   <% end %>
 </div>
