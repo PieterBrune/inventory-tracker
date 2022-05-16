@@ -15,6 +15,7 @@
   <p><%= @warehouse.city%></p>
   <p><%= @warehouse.postal_code%></p>
   <p><%= @warehouse.country%></p>
+  <%= cl_image_tag @warehouse.photo.key, height: 300, width: 400, crop: :fill %>
 
   <h3>Items</h3>
 </div>

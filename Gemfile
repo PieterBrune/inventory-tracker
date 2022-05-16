@@ -33,6 +33,9 @@ gem 'devise'
 # Provides a simple helper to get an HTML select list of countries.
 gem 'country_select', '~> 3.1', '>= 3.1.1'
 
+# For image hosting
+gem 'cloudinary', '~> 1.16.0'
+
 gem 'autoprefixer-rails', '10.2.5'
 gem 'font-awesome-sass', '~> 5.6.1'
 gem 'simple_form', github: 'heartcombo/simple_form'
