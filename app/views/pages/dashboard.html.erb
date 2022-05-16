@@ -4,4 +4,12 @@
   <div class="text-right">
     <%= link_to "Add Warehouse", new_warehouse_path, class: "login" %>
   </div>
+
+  <% if current_user.warehouses.empty? %>
+    <p>Please add a warehouse</p>
+  <% else %>
+    <% @user_warehouses.each do |warehouse| %>
+      <p><%= warehouse.name %></p>
+    <% end %>
+  <% end %>
 </div>
