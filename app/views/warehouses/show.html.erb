@@ -5,6 +5,9 @@
     <%= link_to edit_warehouse_path(@warehouse) do %>
       <i class="far fa-edit"></i>
     <% end %>
+    <%= link_to warehouse_path(@warehouse), method: :delete, data: { confirm: "Are you sure you want to delete #{@warehouse.name}?"} do %>
+      <i class="fas fa-trash"></i>
+    <% end %>
   </div>
 
   <h3>Address</h3>
