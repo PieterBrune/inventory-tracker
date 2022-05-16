@@ -11,7 +11,7 @@ class WarehousesController < ApplicationController
     @warehouse.user = current_user
 
     if @warehouse.save
-      redirect_to :dashboard, notice: "Warehouse Added"
+      redirect_to :dashboard, notice: "Warehouse added."
     else
       render :new
     end
@@ -45,7 +45,7 @@ class WarehousesController < ApplicationController
   private
 
   def warehouse_params
-    params.require(:warehouse).permit(:name, :street_address, :city, :postal_code, :country)
+    params.require(:warehouse).permit(:name, :street_address, :city, :postal_code, :country, :photo)
   end
 
 end

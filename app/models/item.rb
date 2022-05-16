@@ -2,6 +2,9 @@ class Item < ApplicationRecord
   belongs_to :user
   belongs_to :warehouse
 
+  has_one_attached :photo
+  validates :photo, presence: true
+
   validates :name, presence: true
   validates :name, uniqueness: true
 
