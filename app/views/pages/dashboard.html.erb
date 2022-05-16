@@ -9,10 +9,24 @@
     <%= link_to "Add Warehouse", new_warehouse_path, class: "login" %>
   <% else %>
     <h3>Your Warehouses</h3>
-    <% @user_warehouses.each do |warehouse| %>
-      <%= link_to warehouse_path(warehouse) do %>
-        <p><%= warehouse.name %></p>
+    <div class="cards">
+      <% @user_warehouses.each do |warehouse| %>
+        <%= link_to warehouse_path(warehouse) do %>
+          <div class="card">
+            <div class="card-trip">
+              <%= cl_image_tag warehouse.photo.key %>
+              <div class="card-trip-infos">
+                <div>
+                  <h2><%= warehouse.name %></h2>
+                  <p><%= warehouse.street_address %></p>
+                </div>
+                <h2 class="card-trip-pricing"><%= warehouse.city %>, <%= warehouse.country %></h2>
+                <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="card-trip-user avatar-bordered" />
+              </div>
+            </div>
+          </div>
+        <% end %>
       <% end %>
-    <% end %>
+    </div>
   <% end %>
 </div>
