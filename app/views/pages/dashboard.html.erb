@@ -1,3 +1,7 @@
-<div class="container">
+<div class="container mt-3">
   <h2>Hi, <%= current_user.username %></h2>
+
+  <div class="text-right">
+    <%= link_to "Add Warehouse", new_warehouse_path, class: "login" %>
+  </div>
 </div>
