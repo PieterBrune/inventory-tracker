@@ -35,6 +35,13 @@ class WarehousesController < ApplicationController
     end
   end
 
+  def destroy
+    @warehouse = Warehouse.find(params[:id])
+    @warehouse.destroy
+
+    redirect_to :dashboard, notice: "Warehouse destroyed."
+  end
+
   private
 
   def warehouse_params
