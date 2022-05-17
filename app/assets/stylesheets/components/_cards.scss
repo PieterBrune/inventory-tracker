@@ -8,6 +8,7 @@
   margin-top: 10px;
   margin-bottom: 10px;
   width: 80%;
+  border-radius: 5px;
 }
 
 .card-product img {
@@ -34,6 +35,21 @@
   padding: 16px;
 }
 
+.item {
+  text-decoration: none;
+  color: rgb(85, 85, 85);
+}
+
+.item:hover {
+  .card-product {
+    transition: ease-in-out 0.35s;
+    transform: scale(1.05);
+    .card-product-infos {
+      color: rgb(0, 0, 0);
+    }
+  }
+}
+
 // Cards for grid layout on dashboard
 
 .cards {
@@ -41,6 +57,14 @@
   grid-template-columns: 1fr 1fr 1fr;
   grid-gap: 16px;
   flex-grow: 1;
+  a {
+    text-decoration: none;
+    color: rgb(85, 85, 85);
+  }
+  a:hover {
+    transition: ease-in-out 0.35s;
+    transform: scale(1.05);
+  }
 }
 
 // Card layout for warehouses on dashboard
@@ -78,12 +102,6 @@
   position: relative;
 }
 
-.card-trip-infos .card-trip-user {
-  position: absolute;
-  right: 16px;
-  top: -20px;
-  width: 40px;
-}
 
 @media (max-width: 700px) {
   .cards {

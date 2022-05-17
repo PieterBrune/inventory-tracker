@@ -8,9 +8,15 @@
       <i class="fas fa-trash"></i>
     <% end %>
   </div>
-  <%= cl_image_tag @item.photo.key %>
-  <p>Warehouse: <%= @item.warehouse.name  %>, <%= @item.warehouse.street_address  %>, <%= @item.warehouse.city  %>, <%= @item.warehouse.country  %></p>
-  <p>Description: <%= @item.description %></p>
-  <p>In Stock: <%= @item.quantity %></p>
+  <div class="d-flex">
+    <div>
+      <%= cl_image_tag @item.photo.key, height: 300, width: 400, crop: :fit %>
+    </div>
+    <div class="item-details">
+      <p>Warehouse: <%= @item.warehouse.name  %>, <%= @item.warehouse.street_address  %>, <%= @item.warehouse.city  %>, <%= @item.warehouse.country  %></p>
+      <p>Description: <%= @item.description %></p>
+      <p style="<%= @item.quantity > 0 ? "color: blue;" : "color: red;" %>">In Stock: <%= @item.quantity %></p>
+    </div>
+  </div>
   <%= link_to sanitize("<i class='fas fa-arrow-alt-circle-left'></i>"), @item.warehouse, class: "back-btn m-2"%>
 </div>

@@ -12,6 +12,6 @@ class Item < ApplicationRecord
 
   validates :description, presence: true
 
-  # `description` has to be between 10 and 50 characters
-  validates :description, length: { in: 10..50 }
+  # `description` has to be between 10 and 100 characters
+  validates :description, length: { in: 10..100 }
 end
