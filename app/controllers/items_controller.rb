@@ -7,8 +7,7 @@ class ItemsController < ApplicationController
 
   def create
     @item = Item.new(item_params)
-    @item.warehouse = Warehouse.find(params[:item][:warehouse].to_i)
-
+    @item.warehouse = Warehouse.find(params[:item][:warehouse_id].to_i)
 
     @item.user = current_user
 
@@ -29,7 +28,7 @@ class ItemsController < ApplicationController
 
   def update
     @item = Item.find(params[:id])
-    @item.warehouse = Warehouse.find(params[:item][:warehouse].to_i)
+    @item.warehouse = Warehouse.find(params[:item][:warehouse_id].to_i)
     if @item.update(item_params)
       redirect_to item_path(@item), notice: "#{@item.name} updated."
     else
@@ -47,6 +46,6 @@ class ItemsController < ApplicationController
   private
 
   def item_params
-    params.require(:item).permit(:name, :quantity, :description, :photo)
+    params.require(:item).permit(:name, :quantity, :description, :warehouse_id, :photo)
   end
 end
