@@ -44,10 +44,20 @@
   .fa-edit {
     margin-right: 2vw;
     color: green;
+    transition: ease-in-out 0.25s;
+    &:hover {
+      color: rgb(113, 206, 70);
+      font-size: 28px;
+    }
   }
 
   .fa-trash {
     margin-right: 1vw;
     color: red;
+    transition: ease-in-out 0.25s;
+    &:hover {
+      color: rgb(206, 70, 70);
+      font-size: 28px;
+    }
   }
 }

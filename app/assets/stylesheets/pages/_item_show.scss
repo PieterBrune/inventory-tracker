@@ -5,9 +5,12 @@
 
 .item-box {
   display: flex;
+  div {
+    width: auto;
+  }
 }
 
-@media (max-width: 700px) {
+@media (max-width: 1000px) {
   .item-box {
     display: block;
     justify-content: center;

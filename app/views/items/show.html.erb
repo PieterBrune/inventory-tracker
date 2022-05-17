@@ -9,10 +9,10 @@
     <% end %>
   </div>
   <div class="item-box">
-    <div class="col-lg-4 col-12">
+    <div class="col-xl-4 col-12">
       <%= cl_image_tag @item.photo.key, height: 300, width: 400, crop: :fit %>
     </div>
-    <div class="col-lg-4 col-12 item-details">
+    <div class="col-xl-4 col-12 item-details">
       <p>Warehouse: <%= @item.warehouse.name  %>, <%= @item.warehouse.street_address  %>, <%= @item.warehouse.city  %>, <%= @item.warehouse.country  %></p>
       <p>Description: <%= @item.description %></p>
       <p style="<%= @item.quantity > 0 ? "color: blue;" : "color: red;" %>">In Stock: <%= @item.quantity %></p>

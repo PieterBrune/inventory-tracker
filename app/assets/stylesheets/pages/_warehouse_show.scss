@@ -1,9 +1,12 @@
 .warehouse-box {
   display: flex;
+  div {
+      width: auto;
+    }
 }
 
 .warehouse-address {
-  margin-left: 20px;
+  margin-left: 40px;
 }
 
 @media (max-width: 700px) {
