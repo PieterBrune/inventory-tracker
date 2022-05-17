@@ -5,6 +5,8 @@ class Item < ApplicationRecord
   has_one_attached :photo
   validates :photo, presence: true
 
+  validates :warehouse_id, presence: true
+
   validates :name, presence: true
   validates :name, uniqueness: true
 

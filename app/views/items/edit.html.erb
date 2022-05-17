@@ -5,7 +5,7 @@
     <%= f.input :name, required: true %>
     <%= f.input :quantity, required: true %>
     <%= f.input :description, required: true %>
-    <%= f.association :warehouse, collection: current_user.warehouses, include_blank: false %>
+    <%= f.association :warehouse, value_method: :id, collection: current_user.warehouses, include_blank: false %>
     <%= f.input :photo, as: :file, required: true %>
     <div class="form-actions">
       <%= f.button :submit, "Update", class: "login" %>

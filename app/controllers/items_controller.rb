@@ -2,13 +2,21 @@ class ItemsController < ApplicationController
   before_action :authenticate_user!
 
   def new
-    @item = Item.new
+    # To ensure users cannot create an item before creating a warehouse
+    if current_user.warehouses.empty?
+      @warehouse = Warehouse.new
+      redirect_to new_warehouse_path, notice: "Please create a warehouse first"
+    else
+      @item = Item.new
+    end
   end
 
   def create
     @item = Item.new(item_params)
-    @item.warehouse = Warehouse.find(params[:item][:warehouse_id].to_i)
 
+    # Assigning the selected warehouse to the new item
+    @item.warehouse = Warehouse.find(params[:item][:warehouse_id])
+    # Assigning the current user to the new item
     @item.user = current_user
 
     if @item.save
@@ -28,7 +36,8 @@ class ItemsController < ApplicationController
 
   def update
     @item = Item.find(params[:id])
-    @item.warehouse = Warehouse.find(params[:item][:warehouse_id].to_i)
+    # Updating the selected warehouse of the item
+    @item.warehouse = Warehouse.find(params[:item][:warehouse_id])
     if @item.update(item_params)
       redirect_to item_path(@item), notice: "#{@item.name} updated."
     else
