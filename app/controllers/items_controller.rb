@@ -16,6 +16,7 @@ class ItemsController < ApplicationController
 
     # Assigning the selected warehouse to the new item
     @item.warehouse = Warehouse.find(params[:item][:warehouse_id])
+
     # Assigning the current user to the new item
     @item.user = current_user
 
@@ -36,8 +37,10 @@ class ItemsController < ApplicationController
 
   def update
     @item = Item.find(params[:id])
+
     # Updating the selected warehouse of the item
     @item.warehouse = Warehouse.find(params[:item][:warehouse_id])
+
     if @item.update(item_params)
       redirect_to item_path(@item), notice: "#{@item.name} updated."
     else

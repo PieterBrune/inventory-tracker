@@ -1,7 +1,11 @@
 class Warehouse < ApplicationRecord
+  # Associations
   belongs_to :user
 
+  # For active storage and hosting of images on cloudinary
   has_one_attached :photo
+
+  # Validations
   validates :photo, presence: true
 
   validates :name, presence: true
