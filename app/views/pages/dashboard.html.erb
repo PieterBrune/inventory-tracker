@@ -8,7 +8,7 @@
     <br>
     <%= link_to "Add Warehouse", new_warehouse_path, class: "login" %>
   <% else %>
-    <h3>Your Warehouses</h3>
+    <h3><%= current_user.company %> Warehouses</h3>
     <div class="cards">
       <% current_user.warehouses.each do |warehouse| %>
         <%= link_to warehouse_path(warehouse) do %>
